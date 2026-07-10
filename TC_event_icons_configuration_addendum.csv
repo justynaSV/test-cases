@@ -1,0 +1,30 @@
+Title;Step;Expected result;Area Path;Iteration Path;QA Priority;Assigned To;Preconditions
+Konfiguracja - Ikony zdarzeń: priority/order control (page layout);;;QA\SVCloud;QA\SVCloud\Konfiguracja;Medium;justyna.biernacka@softvig.pl;"User is logged in as Local Administrator
+'Ikony zdarzeń' page is loaded
+At least 3 events exist on the list, all set as Widoczne = Tak"
+;Verify if each row on the events list has a drag handle icon for reordering (analogous to 'Plany pracy').;It displays correctly.;;;;;
+;Verify if current order of events on the list reflects their configured priority (top = highest priority / first displayed on task).;It displays correctly.;;;;;
+;Hover over the drag handle icon to verify if cursor changes to a 'move' icon.;It displays correctly.;;;;;
+;End of test.;;;;;;
+Konfiguracja - Ikony zdarzeń: reorder events via drag-and-drop;;;QA\SVCloud;QA\SVCloud\Konfiguracja;Medium;justyna.biernacka@softvig.pl;"User is logged in as Local Administrator
+'Ikony zdarzeń' page is loaded
+At least 3 events exist on the list, all set as Widoczne = Tak"
+;Note current order of events on the list (e.g. Event A, Event B, Event C).;Order is noted.;;;;;
+;Drag Event C and drop it to the first position on the list.;Event C moves to the first position.;;;;;
+;Verify if the list order updates to: Event C, Event A, Event B.;It displays correctly.;;;;;
+;Refresh the page and verify if the new order persists.;New order persists after refresh.;;;;;
+;End of test.;;;;;;
+Konfiguracja - Ikony zdarzeń: drag-and-drop reorder reflected on calendar;;;QA\SVCloud;QA\SVCloud\Konfiguracja;Medium;justyna.biernacka@softvig.pl;"User is logged in as Local Administrator
+'Ikony zdarzeń' page is loaded
+At least 2 events exist on the list, both Widoczne = Tak
+Task exists on calendar (BOK or Warsztat) where both events occur"
+;Note current icon order on the task in calendar view.;Order is noted.;;;;;
+;Go to 'Ikony zdarzeń' page and drag the lower-priority event above the other one.;Order has been changed on the list.;;;;;
+;Go back to calendar and manually refresh it.;Calendar is refreshed.;;;;;
+;Verify if icon order on the task now reflects the new priority (matches updated list order).;Icon order is updated correctly.;;;;;
+;End of test.;;;;;;
+Konfiguracja - Ikony zdarzeń: drag-and-drop reorder within same resource type only;;;QA\SVCloud;QA\SVCloud\Konfiguracja;Medium;justyna.biernacka@softvig.pl;"User is logged in as Local Administrator
+'Ikony zdarzeń' page is loaded
+At least 2 events exist configured for different 'Rodzaj zasobu' (e.g. one for Doradca serwisowy, one for Mechanik)"
+;Verify if drag-and-drop reordering is scoped/grouped per 'Rodzaj zasobu' or applies globally across all resource types.;It displays correctly (behavior matches intended scope).;;;;;
+;End of test.;;;;;;
