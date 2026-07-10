@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "required": ["title", "area_path", "iteration_path", "qa_priority", "assigned_to", "preconditions", "steps"],
+  "properties": {
+    "title": {"type": "string"},
+    "area_path": {"type": "string", "const": "QA\\SVCloud"},
+    "iteration_path": {"type": "string"},
+    "qa_priority": {"enum": ["Low", "Medium", "High"]},
+    "assigned_to": {"type": "string"},
+    "preconditions": {"type": "string"},
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "step": {"type": "string"},
+          "expected_result": {"type": "string"}
+        },
+        "required": ["step"]
+      }
+    }
+  }
+}
