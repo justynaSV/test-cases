@@ -13,5 +13,5 @@ def parse_scenarios(filepath: str, sheet_name=0) -> pd.DataFrame:
 
 if __name__ == "__main__":
     df = parse_scenarios("data/raw/SVC_obiegowki.xlsx")
-    df.to_csv("data/gold_examples/scenarios.csv", index=False)
+    df.to_csv("test_cases/examples/scenarios.csv", index=False)
     print(f"Parsed {len(df)} scenarios.")

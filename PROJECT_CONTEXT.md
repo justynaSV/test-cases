@@ -25,24 +25,24 @@ Style guide + examples + schema + prompt template, with human review loop.
 ## 2. Repository contents so far
 
 ### Test case files (real examples, used as style reference)
-- `TC_authorization.csv` — login/auth scenarios
-- `TC_bodyshop.csv` — Blacharnia module
-- `TC_carwash.csv` — Myjnia module
-- `TC_fleet.csv` — Flota Dealera module
+- `test_cases/examples/TC_authorization.csv` — login/auth scenarios
+- `test_cases/examples/TC_bodyshop.csv` — Blacharnia module
+- `test_cases/examples/TC_carwash.csv` — Myjnia module
+- `test_cases/examples/TC_fleet.csv` — Flota Dealera module
 
 ### Newly generated scenarios (following the established style)
-- `TC_unconfirmed_parts_icon.csv` — Planer Serwisu, "Części niepotwierdzone" icon feature
-- `TC_calendar_event_icons_general.csv` — shared/generic rules for ALL calendar event icons
+- `test_cases/generated/TC_unconfirmed_parts_icon.csv` — Planer Serwisu, "Części niepotwierdzone" icon feature
+- `test_cases/generated/TC_calendar_event_icons_general.csv` — shared/generic rules for ALL calendar event icons
   (tooltip layout, alignment, overflow +N indicator, view scoping, role independence, etc.)
-- `TC_event_icons_configuration.csv` — Konfiguracja module, admin screen for configuring
+- `test_cases/generated/TC_event_icons_configuration.csv` — Konfiguracja module, admin screen for configuring
   event icon visibility/priority (CRUD, parameter overloading, drag-and-drop priority order)
-- `TC_event_icons_configuration_addendum.csv` — drag-and-drop priority ordering scenarios
+- `test_cases/generated/TC_event_icons_configuration_addendum.csv` — drag-and-drop priority ordering scenarios
   (confirmed mechanism: drag-and-drop list, analogous to "Plany pracy")
 
 ### Source stories/specs used as input
-- `unconfirmed_parts_icon.md` — user story for "Części niepotwierdzone" icon (Planer Serwisu)
-- `event_icons_guidelines.md` — EPIC "IKONY KALENDARZA" — generic rules for ALL calendar event icons
-- `event_configuration.md` — user story for admin configuration screen (Konfiguracja module)
+- `data/knowledge/unconfirmed_parts_icon.md` — user story for "Części niepotwierdzone" icon (Planer Serwisu)
+- `data/knowledge/event_icons_guidelines.md` — EPIC "IKONY KALENDARZA" — generic rules for ALL calendar event icons
+- `data/knowledge/event_configuration.md` — user story for admin configuration screen (Konfiguracja module)
 
 ---
 
@@ -208,8 +208,10 @@ Title;Step;Expected result;Area Path;Iteration Path;QA Priority;Assigned To;Prec
 test-cases/
 ├── data/
 │   ├── raw/                  # original XLSX/CSV exports
-│   ├── gold_examples/        # curated best scenarios (style reference)
 │   └── knowledge/            # PRDs, user stories, API docs, glossary
+├── test_cases/
+│   ├── examples/             # curated best scenarios (style reference)
+│   └── generated/            # ready CSV files for Azure DevOps import
 ├── ingestion/
 │   ├── parse_xlsx.py
 │   ├── chunk_docs.py
@@ -268,7 +270,7 @@ test-cases/
       of the +N indicator is needed.
 - [ ] Confirm priority/order UI behavior details for drag-and-drop (single global list vs.
       grouped/scoped per "Rodzaj zasobu") — flagged as open question in
-      `TC_event_icons_configuration_addendum.csv`.
+  `test_cases/generated/TC_event_icons_configuration_addendum.csv`.
 
 ---
 
@@ -277,7 +279,7 @@ test-cases/
 1. Clone the repo: `git clone https://github.com/wrozka666/test-cases.git`
 2. Open it in VS Code with the GitHub Copilot extension installed.
 3. Open Copilot Chat and reference this file, e.g.:
-   - *"Read PROJECT_CONTEXT.md and TC_bodyshop.csv, then generate a new test scenario for
+  - *"Read PROJECT_CONTEXT.md and test_cases/examples/TC_bodyshop.csv, then generate a new test scenario for
      [feature] in module [X] following the same style."*
    - *"Based on the style guide in PROJECT_CONTEXT.md, review this draft scenario I wrote
      and tell me what to fix."*
