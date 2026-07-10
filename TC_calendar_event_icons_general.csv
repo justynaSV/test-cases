@@ -1,0 +1,95 @@
+Title;Step;Expected result;Area Path;Iteration Path;QA Priority;Assigned To;Preconditions
+Kalendarz - event icons: tooltip layout (two columns);;;QA\SVCloud;QA\SVCloud\Planer Serwisu;Medium;justyna.biernacka@softvig.pl;"User is logged in
+Calendar page (BOK or Warsztat) is loaded
+Task exists with at least 2 events assigned (e.g. Części niepotwierdzone + another event)"
+;Hover over the task to display the tooltip.;Tooltip is displayed.;;;;;
+;"Verify bottom section of the tooltip:
+- section for event icons is present at the very bottom
+- icons displayed in two columns
+- each entry shows: icon + event name";It displays correctly.;;;;;
+;Verify if event names are translated according to current UI language.;Event names are displayed in correct language.;;;;;;
+;"Verify icon style:
+- colour and size same as other icons currently used in tooltip";It displays correctly.;;;;;
+;"Verify text style:
+- colour and size same as other text currently used in tooltip";It displays correctly.;;;;;
+;End of test.;;;;;;
+Kalendarz - event icons: tooltip applies to BOK and Warsztat calendars;;;QA\SVCloud;QA\SVCloud\Planer Serwisu;Medium;justyna.biernacka@softvig.pl;"User is logged in
+Task exists with at least 1 event assigned"
+;Go to BOK calendar, hover over the task.;Tooltip is displayed with event icons section at the bottom.;;;;;
+;Go to Warsztat calendar, hover over the same task.;Tooltip is displayed with event icons section at the bottom.;;;;;
+;End of test.;;;;;;
+Kalendarz - event icons: not displayed on Myjnia and Flota calendars;;;QA\SVCloud;QA\SVCloud\Planer Serwisu;Medium;justyna.biernacka@softvig.pl;"User is logged in
+Task/reservation exists with at least 1 event that would trigger an icon on repair-related task"
+;Go to Myjnia calendar (Kalendarz myjni).;Calendar page is displayed.;;;;;
+;Verify that event icons are NOT displayed on any task/reservation.;Icons are not displayed.;;;;;
+;Go to Flota Dealera calendar (Kalendarz pojazdów).;Calendar page is displayed.;;;;;
+;Verify that event icons are NOT displayed on any task/reservation.;Icons are not displayed.;;;;;
+;End of test.;;;;;;
+Kalendarz - event icons: icon not clickable and no dedicated tooltip;;;QA\SVCloud;QA\SVCloud\Planer Serwisu;Medium;justyna.biernacka@softvig.pl;"User is logged in
+Calendar page (BOK or Warsztat) is loaded
+Task exists with at least 1 event icon displayed in the bottom row of the task"
+;Hover over the event icon directly (not the task).;No dedicated tooltip for the icon appears.;;;;;
+;Click on the event icon.;Nothing happens, user is not redirected anywhere.;;;;;
+;End of test.;;;;;;
+Kalendarz - event icons: icons displayed only in normal view (not compact);;;QA\SVCloud;QA\SVCloud\Planer Serwisu;Medium;justyna.biernacka@softvig.pl;"User is logged in
+Calendar page (BOK or Warsztat) is loaded
+Task exists with at least 1 event assigned"
+;Switch calendar to normal view.;Normal view is displayed.;;;;;
+;Verify if event icons are visible in the bottom row of the task.;Icons are displayed.;;;;;
+;Switch calendar to compact view.;Compact view is displayed.;;;;;
+;Verify if event icons are NOT visible on the task.;Icons are not displayed.;;;;;
+;End of test.;;;;;;
+Kalendarz - event icons: order according to configured priority;;;QA\SVCloud;QA\SVCloud\Planer Serwisu;Medium;justyna.biernacka@softvig.pl;"User is logged in
+Calendar page (BOK or Warsztat) is loaded
+Task exists with at least 3 events assigned with different configured priorities"
+;Verify order of icons displayed on the task (left to right).;Icons are ordered according to priority/order configured in system settings.;;;;;
+;Go to event icons configuration and change priority order of two events.;Priority order has been changed.;;;;;
+;Go back to calendar and verify if icon order on the task has updated accordingly.;Icon order reflects new configuration.;;;;;
+;End of test.;;;;;;
+Kalendarz - event icons: left alignment;;;QA\SVCloud;QA\SVCloud\Planer Serwisu;Medium;justyna.biernacka@softvig.pl;"User is logged in
+Calendar page (BOK or Warsztat) is loaded
+Task exists with multiple event icons"
+;Verify if icons in the bottom row of the task are aligned to the left.;Icons are left-aligned.;;;;;
+;End of test.;;;;;;
+Kalendarz - event icons: overflow indicator (+N) when icons do not fit;;;QA\SVCloud;QA\SVCloud\Planer Serwisu;Medium;justyna.biernacka@softvig.pl;"User is logged in
+Calendar page (BOK or Warsztat) is loaded
+Task exists with more events assigned than can fit in the task's icon row width"
+;Verify if visible icons are left-aligned and ordered by priority.;Icons displayed correctly, ordered by priority.;;;;;
+;"Verify overflow indicator at the end (right side) of visible icons:
+- format: +N (N = number of hidden icons)
+- displayed as white number only, no border/background";It displays correctly.;;;;;
+;Verify that N correctly reflects the number of icons NOT shown.;Number is correct.;;;;;
+;Resize the task/column (if possible) or reduce number of events so all icons fit.;Task width or number of icons changed.;;;;;
+;Verify that overflow indicator disappears when all icons fit.;Indicator is not displayed.;;;;;
+;End of test.;;;;;;
+Kalendarz - event icons: overflow with hours displayed (1-day view);;;QA\SVCloud;QA\SVCloud\Planer Serwisu;Medium;justyna.biernacka@softvig.pl;"User is logged in
+Calendar page (BOK or Warsztat) is loaded, 1-day view active
+Task exists with more events than fit alongside displayed hours"
+;Switch to 1-day view.;1-day view is displayed.;;;;;
+;Verify that hours are always displayed and right-aligned on the task.;Hours are visible and right-aligned.;;;;;
+;Verify that icons are left-aligned.;Icons are left-aligned.;;;;;
+;Verify that overflow indicator (+N) is displayed if not all icons fit alongside the hours.;Overflow indicator is displayed correctly.;;;;;
+;End of test.;;;;;;
+Kalendarz - event icons: visible in 1, 7 and 30-day views;;;QA\SVCloud;QA\SVCloud\Planer Serwisu;Medium;justyna.biernacka@softvig.pl;"User is logged in
+Calendar page (BOK or Warsztat) is loaded
+Task exists with at least 1 event assigned"
+;Switch calendar to 1-day view.;It displays correctly, event icon(s) visible on the task.;;;;;
+;Switch calendar to 7-day view.;It displays correctly, event icon(s) visible on the task.;;;;;
+;Switch calendar to 30-day view.;It displays correctly, event icon(s) visible on the task.;;;;;
+;End of test.;;;;;;
+Kalendarz - event icons: default colour and icon set (FontAwesome Classic Regular);;;QA\SVCloud;QA\SVCloud\Planer Serwisu;Medium;justyna.biernacka@softvig.pl;"User is logged in
+Calendar page (BOK or Warsztat) is loaded
+Task exists with at least 1 event assigned"
+;Verify default colour of the event icon on the task.;Icon colour is white.;;;;;
+;Verify icon style/format matches FontAwesome v5 Classic Regular set (as per configuration list).;Icon format is correct.;;;;;
+;End of test.;;;;;;
+Kalendarz - event icons: visibility not dependent on user role or app permissions;;;QA\SVCloud;QA\SVCloud\Planer Serwisu;Medium;justyna.biernacka@softvig.pl;"Two users are available with access to BOK/Warsztat calendar:
+- User A: role Doradca
+- User B: role Mistrz warsztatu
+Neither user has additional/different permissions to other applications
+Task exists with at least 1 event assigned"
+;Log in as User A (Doradca) and go to the calendar.;Calendar page is displayed.;;;;;
+;Verify if event icon(s) are visible on the task.;Icon(s) are displayed.;;;;;
+;Log out and log in as User B (Mistrz warsztatu).;User is logged in.;;;;;
+;Go to the same calendar and verify if event icon(s) are visible on the task.;Icon(s) are displayed, same as for User A.;;;;;
+;End of test.;;;;;;

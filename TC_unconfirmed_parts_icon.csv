@@ -1,0 +1,75 @@
+Title;Step;Expected result;Area Path;Iteration Path;QA Priority;Assigned To;Preconditions
+Planer Serwisu - unconfirmed parts icon: display logic;;;QA\SVCloud;QA\SVCloud\Planer Serwisu;Medium;justyna.biernacka@softvig.pl;"User is logged in
+Calendar page (BOK or Warsztat) is loaded
+Repair exists with field 'Części' = Wymagane
+Parts confirmation has NOT been performed (no entry in SpRepair.SpRepairPartsConfirmation)"
+;Go to calendar view (BOK or Warsztat) with the task assigned to the repair.;Calendar page is displayed with the task visible.;;;;;
+;Verify if 'Części niepotwierdzone' icon (box-open) is displayed on the task.;Icon is displayed on the task.;;;;;
+;Hover over the icon to verify the tooltip/label.;Tooltip shows 'Części niepotwierdzone'.;;;;;
+;End of test.;;;;;;
+Planer Serwisu - unconfirmed parts icon: hide logic (parts confirmed);;;QA\SVCloud;QA\SVCloud\Planer Serwisu;Medium;justyna.biernacka@softvig.pl;"User is logged in
+Calendar page (BOK or Warsztat) is loaded
+Repair exists with field 'Części' = Wymagane
+Parts confirmation has been performed (entry exists in SpRepair.SpRepairPartsConfirmation)"
+;Go to calendar view (BOK or Warsztat) with the task assigned to the repair.;Calendar page is displayed with the task visible.;;;;;
+;Verify if 'Części niepotwierdzone' icon is NOT displayed on the task.;Icon is not displayed.;;;;;
+;End of test.;;;;;;
+Planer Serwisu - unconfirmed parts icon: not displayed when parts not required;;;QA\SVCloud;QA\SVCloud\Planer Serwisu;Medium;justyna.biernacka@softvig.pl;"User is logged in
+Calendar page (BOK or Warsztat) is loaded
+Repair exists with field 'Części' different than Wymagane (e.g. Niewymagane)"
+;Go to calendar view (BOK or Warsztat) with the task assigned to the repair.;Calendar page is displayed with the task visible.;;;;;
+;Verify if 'Części niepotwierdzone' icon is NOT displayed on the task.;Icon is not displayed.;;;;;
+;End of test.;;;;;;
+Planer Serwisu - unconfirmed parts icon: real-time display after event occurs;;;QA\SVCloud;QA\SVCloud\Planer Serwisu;Medium;justyna.biernacka@softvig.pl;"User is logged in
+Calendar page (BOK or Warsztat) is loaded
+Repair exists with field 'Części' = Wymagane
+Parts confirmation has been performed (icon is currently hidden)"
+;Verify if 'Części niepotwierdzone' icon is NOT displayed on the task (initial state).;Icon is not displayed.;;;;;
+;Without refreshing the page, cofnij potwierdzenie części for the repair (via repair context/header).;Parts confirmation has been withdrawn.;;;;;
+;Without refreshing the page, verify if 'Części niepotwierdzone' icon appears automatically on the task (signaller).;Icon is displayed automatically, no manual refresh needed.;;;;;
+;End of test.;;;;;;
+Planer Serwisu - unconfirmed parts icon: real-time hide after confirmation;;;QA\SVCloud;QA\SVCloud\Planer Serwisu;Medium;justyna.biernacka@softvig.pl;"User is logged in
+Calendar page (BOK or Warsztat) is loaded
+Repair exists with field 'Części' = Wymagane
+Parts confirmation has NOT been performed (icon is currently displayed)"
+;Verify if 'Części niepotwierdzone' icon is displayed on the task (initial state).;Icon is displayed.;;;;;
+;Without refreshing the page, potwierdź części for the repair (via repair context/header).;Parts confirmation has been performed.;;;;;
+;Without refreshing the page, verify if 'Części niepotwierdzone' icon disappears automatically from the task (signaller).;Icon is hidden automatically, no manual refresh needed.;;;;;
+;End of test.;;;;;;
+Planer Serwisu - unconfirmed parts icon: field 'Części' changed from Wymagane to Niewymagane;;;QA\SVCloud;QA\SVCloud\Planer Serwisu;Medium;justyna.biernacka@softvig.pl;"User is logged in
+Calendar page (BOK or Warsztat) is loaded
+Repair exists with field 'Części' = Wymagane
+Parts confirmation has NOT been performed (icon is currently displayed)"
+;Verify if 'Części niepotwierdzone' icon is displayed on the task (initial state).;Icon is displayed.;;;;;
+;Change field 'Części' from Wymagane to Niewymagane (via repair context/header).;Field has been changed.;;;;;
+;Without refreshing the page, verify if 'Części niepotwierdzone' icon disappears automatically from the task.;Icon is hidden automatically.;;;;;
+;End of test.;;;;;;
+Planer Serwisu - unconfirmed parts icon: multiple tasks on calendar;;;QA\SVCloud;QA\SVCloud\Planer Serwisu;Medium;justyna.biernacka@softvig.pl;"User is logged in
+Calendar page (BOK or Warsztat) is loaded
+Multiple repairs are visible on calendar with mixed states of 'Części' field and confirmation status"
+;Verify that icon is displayed only on tasks where 'Części' = Wymagane AND confirmation has NOT been performed.;Icon is displayed correctly only on matching tasks.;;;;;
+;Verify that icon is NOT displayed on tasks where 'Części' <> Wymagane or confirmation has been performed.;Icon is not displayed on non-matching tasks.;;;;;
+;End of test.;;;;;;
+Planer Serwisu - unconfirmed parts icon: visible in both BOK and Warsztat calendars;;;QA\SVCloud;QA\SVCloud\Planer Serwisu;Medium;justyna.biernacka@softvig.pl;"User is logged in
+Repair exists with field 'Części' = Wymagane
+Parts confirmation has NOT been performed"
+;Go to BOK calendar view with the task assigned to the repair.;Calendar page is displayed.;;;;;
+;Verify if 'Części niepotwierdzone' icon is displayed on the task.;Icon is displayed.;;;;;
+;Go to Warsztat calendar view with the same task/repair.;Calendar page is displayed.;;;;;
+;Verify if 'Części niepotwierdzone' icon is displayed on the task.;Icon is displayed.;;;;;
+;End of test.;;;;;;
+Planer Serwisu - unconfirmed parts icon: displayed in tooltip with correct name and translation;;;QA\SVCloud;QA\SVCloud\Planer Serwisu;Medium;justyna.biernacka@softvig.pl;"User is logged in
+Calendar page (BOK or Warsztat) is loaded
+Repair exists with field 'Części' = Wymagane
+Parts confirmation has NOT been performed"
+;Hover over the task to display the tooltip.;Tooltip is displayed.;;;;;
+;"Verify event icons section at the bottom of the tooltip:
+- icon: box-open
+- name: 'Części niepotwierdzone'";It displays correctly.;;;;;
+;Switch application language and verify if event name is translated accordingly.;Event name is translated correctly.;;;;;
+;End of test.;;;;;;
+Planer Serwisu - unconfirmed parts icon: priority order alongside other event icons;;;QA\SVCloud;QA\SVCloud\Planer Serwisu;Medium;justyna.biernacka@softvig.pl;"User is logged in
+Calendar page (BOK or Warsztat) is loaded
+Repair exists with 'Części niepotwierdzone' event AND at least one other event assigned to the same task"
+;Verify position of 'Części niepotwierdzone' icon relative to other icons on the task (left to right).;Icon position matches priority/order configured in system settings for this event type.;;;;;
+;End of test.;;;;;;

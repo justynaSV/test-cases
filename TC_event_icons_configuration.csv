@@ -1,0 +1,154 @@
+Title;Step;Expected result;Area Path;Iteration Path;QA Priority;Assigned To;Preconditions
+Konfiguracja - Ikony zdarzeń: access restricted to local administrator;;;QA\SVCloud;QA\SVCloud\Konfiguracja;Medium;justyna.biernacka@softvig.pl;"User is logged in as a non-administrator (e.g. doradca/mistrz warsztatu)"
+;Go to menu: Konfiguracja systemowa -> Planowanie Serwisu -> Serwis.;'Serwis' section is displayed.;;;;;
+;Verify if 'Ikony zdarzeń' menu item is NOT visible/accessible for non-administrator user.;'Ikony zdarzeń' is not visible.;;;;;
+;Log out and log in as Local Administrator.;User is logged in.;;;;;
+;Go to menu: Konfiguracja systemowa -> Planowanie Serwisu -> Serwis.;'Serwis' section is displayed.;;;;;
+;Verify if 'Ikony zdarzeń' menu item is visible directly under 'Cechy napraw'.;It displays correctly.;;;;;
+;Click 'Ikony zdarzeń'.;'Ikony zdarzeń' page is loaded.;;;;;
+;End of test.;;;;;;
+Konfiguracja - Ikony zdarzeń: page layout;;;QA\SVCloud;QA\SVCloud\Konfiguracja;Medium;justyna.biernacka@softvig.pl;"User is logged in as Local Administrator"
+;Go to menu: Konfiguracja systemowa -> Planowanie Serwisu -> Serwis -> Ikony zdarzeń.;'Ikony zdarzeń' page is loaded.;;;;;
+;"Verify top panel of the page:
+- button: 'Dodaj'
+- button: 'Wyczyść filtry'";It displays correctly.;;;;;
+;"Verify columns in page layout:
+- Operacje
+- Zdarzenie
+- Widoczne?
+- Rodzaj zasobu
+- Symbol
+- Kolor
+- Firma
+- Lokalizacja
+- Instancja
+- Rodzaj profilu
+- Profil";It displays correctly.;;;;;
+;Verify if column 'Kolor' displays graphical colour visualization (not only text/code).;It displays correctly.;;;;;
+;Verify if column 'Widoczne?' displays value as Tak/Nie.;It displays correctly.;;;;;
+;Verify if column 'Operacje' contains 'Edytuj' and 'Usuń' buttons for each row.;It displays correctly.;;;;;
+;End of test.;;;;;;
+Konfiguracja - Ikony zdarzeń: add new event form layout;;;QA\SVCloud;QA\SVCloud\Konfiguracja;Medium;justyna.biernacka@softvig.pl;"User is logged in as Local Administrator
+'Ikony zdarzeń' page is loaded"
+;Click 'Dodaj'.;Pop-up window (edit/add event) is displayed.;;;;;
+;"Verify form fields:
+- Zdarzenie
+- Widoczny (Tak/Nie)
+- Rodzaj zasobu (drop-down list)
+- Symbol (non-editable)
+- Kolor ikony (colour picker)
+- Priorytet/kolejność wyświetlania";It displays correctly.;;;;;
+;"Verify parameter overloading section (analogous to system parameters):
+- Firma
+- Lokalizacja
+- Instancja
+- Rodzaj profilu
+- Profil";It displays correctly.;;;;;
+;"Verify items in 'Rodzaj zasobu' drop-down list:
+- Doradca serwisowy
+- Mechanik (serwis mechaniczny)
+- Pracownik Door2Door
+- Stanowisko";It displays correctly.;;;;;
+;Verify if field 'Symbol' is non-editable and pre-filled automatically with the default icon assigned to the event.;It displays correctly.;;;;;
+;Verify if field 'Kolor ikony' is pre-filled automatically with a default value.;It displays correctly.;;;;;
+;Click on 'Kolor ikony' field to open colour picker.;Colour picker modal window is displayed.;;;;;
+;"Verify colour picker modal:
+- basic/default (producer) colours available
+- option to define custom colour precisely";It displays correctly.;;;;;
+;End of test.;;;;;;
+Konfiguracja - Ikony zdarzeń: add new event - mandatory fields validation;;;QA\SVCloud;QA\SVCloud\Konfiguracja;Medium;justyna.biernacka@softvig.pl;"User is logged in as Local Administrator
+'Ikony zdarzeń' page is loaded"
+;Click 'Dodaj'.;Pop-up window (add event) is displayed.;;;;;
+;Click 'Zapisz' without filling in any fields.;Warning message occurs: 'Proszę poprawić błędy w formularzu';;;;;
+;"Verify if mandatory fields are marked with red icon:
+- Zdarzenie
+- Widoczny
+- Kolor";It displays correctly.;;;;;
+;Fill in all mandatory fields and click 'Zapisz'.;Pop-up window is closed.;;;;;
+;Verify if the new event is visible on the events list.;New event is visible on the list.;;;;;
+;End of test.;;;;;;
+Konfiguracja - Ikony zdarzeń: add new event with parameter overloading;;;QA\SVCloud;QA\SVCloud\Konfiguracja;Medium;justyna.biernacka@softvig.pl;"User is logged in as Local Administrator
+'Ikony zdarzeń' page is loaded
+At least one Firma, Lokalizacja and Instancja are available in the system"
+;Click 'Dodaj'.;Pop-up window (add event) is displayed.;;;;;
+;Fill in mandatory fields (Zdarzenie, Widoczny, Kolor).;Fields are filled in.;;;;;
+;Select specific 'Rodzaj zasobu': Doradca serwisowy.;Value is selected.;;;;;
+;Select specific values for 'Firma', 'Lokalizacja', 'Instancja' (overload parameters).;Values are selected.;;;;;
+;Set 'Widoczny' = Tak and click 'Zapisz'.;Pop-up window is closed.;;;;;
+;Verify if new row is visible on the list with correct values in columns: Rodzaj zasobu, Firma, Lokalizacja, Instancja.;It displays correctly.;;;;;
+;End of test.;;;;;;
+Konfiguracja - Ikony zdarzeń: edit existing event;;;QA\SVCloud;QA\SVCloud\Konfiguracja;Medium;justyna.biernacka@softvig.pl;"User is logged in as Local Administrator
+'Ikony zdarzeń' page is loaded
+At least one event exists on the list"
+;Click 'Edytuj' next to an existing event.;Pop-up window (edit event) is displayed.;;;;;
+;Verify if all previously configured values are correctly pre-filled in the form.;It displays correctly.;;;;;
+;Change field 'Widoczny' to the opposite value and click 'Zapisz'.;Pop-up window is closed.;;;;;
+;Verify if the change is reflected on the events list.;It displays correctly.;;;;;
+;End of test.;;;;;;
+Konfiguracja - Ikony zdarzeń: delete event;;;QA\SVCloud;QA\SVCloud\Konfiguracja;Medium;justyna.biernacka@softvig.pl;"User is logged in as Local Administrator
+'Ikony zdarzeń' page is loaded
+At least one event exists on the list (created for test purposes)"
+;Click 'Usuń' next to the event created for test purposes.;Pop-up window 'Potwierdzenie' is displayed.;;;;;
+;Click 'Nie'.;Pop-up window is closed.;;;;;
+;Verify if the event is still visible on the list.;Event is visible on the list.;;;;;
+;Click 'Usuń' next to the event again.;Pop-up window 'Potwierdzenie' is displayed.;;;;;
+;Click 'Tak'.;Pop-up window is closed.;;;;;
+;Verify if the event is NOT visible on the list.;Event is NOT visible on the list.;;;;;
+;End of test.;;;;;;
+Konfiguracja - Ikony zdarzeń: priority/order configuration;;;QA\SVCloud;QA\SVCloud\Konfiguracja;Medium;justyna.biernacka@softvig.pl;"User is logged in as Local Administrator
+'Ikony zdarzeń' page is loaded
+At least 2 events exist on the list, both set as Widoczne = Tak"
+;Verify current priority/order of the two events (drag-and-drop list, analogous to work plans).;It displays correctly.;;;;;
+;Change the priority/order between the two events via drag-and-drop.;Priority/order has been changed.;;;;;
+;Save the configuration.;Configuration is saved.;;;;;
+;Go to calendar (BOK or Warsztat) with a task where both events occur.;Calendar page is displayed.;;;;;
+;Manually refresh the calendar.;Calendar is refreshed.;;;;;
+;Verify if icon order on the task reflects the new priority configuration.;Icon order is updated correctly.;;;;;
+;End of test.;;;;;;
+Konfiguracja - Ikony zdarzeń: 'Widoczny' = Nie hides icon on calendar;;;QA\SVCloud;QA\SVCloud\Konfiguracja;Medium;justyna.biernacka@softvig.pl;"User is logged in as Local Administrator
+Event is configured with 'Widoczny' = Tak, applicable to a resource/unit currently used on calendar
+Task exists on calendar matching event conditions (icon currently visible)"
+;Go to calendar (BOK or Warsztat) and verify the event icon is displayed on the task.;Icon is displayed.;;;;;
+;Go to 'Ikony zdarzeń' page and edit the event, changing 'Widoczny' to Nie.;Field is changed.;;;;;
+;Click 'Zapisz'.;Pop-up window is closed, configuration is saved.;;;;;
+;Verify that the calendar is NOT automatically refreshed (per business rule: no auto-refresh).;Calendar view (if already open) remains unchanged until manual refresh.;;;;;
+;Manually refresh the calendar.;Calendar is refreshed.;;;;;
+;Verify that the icon is no longer displayed on the task.;Icon is not displayed.;;;;;
+;End of test.;;;;;;
+Konfiguracja - Ikony zdarzeń: configuration recalculates icons from current day forward;;;QA\SVCloud;QA\SVCloud\Konfiguracja;Medium;justyna.biernacka@softvig.pl;"User is logged in as Local Administrator
+Event exists on both past and future tasks matching event conditions"
+;Configure the event 'Widoczny' = Nie and save.;Configuration is saved.;;;;;
+;Manually refresh the calendar and go to a date in the past (before today).;Calendar page is displayed for past date.;;;;;
+;Verify if the icon is STILL displayed on past tasks (recalculation applies from current day forward only).;Icon is displayed on past tasks (unchanged).;;;;;
+;Go to today's date and future dates.;Calendar page is displayed.;;;;;
+;Verify if the icon is NOT displayed on tasks from today onward.;Icon is not displayed from today forward.;;;;;
+;End of test.;;;;;;
+Konfiguracja - Ikony zdarzeń: resource type ('Rodzaj zasobu') scoped visibility;;;QA\SVCloud;QA\SVCloud\Konfiguracja;Medium;justyna.biernacka@softvig.pl;"User is logged in as Local Administrator
+Event configured with 'Widoczny' = Tak and 'Rodzaj zasobu' = Doradca serwisowy only"
+;Go to calendar view with tasks assigned to Doradca serwisowy resource.;Calendar page is displayed.;;;;;
+;Verify if the event icon is displayed on tasks assigned to Doradca serwisowy.;Icon is displayed.;;;;;
+;Go to calendar view with tasks assigned to Mechanik (serwis mechaniczny) resource.;Calendar page is displayed.;;;;;
+;Verify if the event icon is NOT displayed on tasks assigned to Mechanik.;Icon is not displayed.;;;;;
+;End of test.;;;;;;
+Konfiguracja - Ikony zdarzeń: unit profile scoped visibility (BOK vs Warsztat);;;QA\SVCloud;QA\SVCloud\Konfiguracja;Medium;justyna.biernacka@softvig.pl;"User is logged in as Local Administrator
+Event configured with 'Widoczny' = Tak and 'Rodzaj profilu'/'Profil' set to BOK serwisowy only (specific unit)"
+;Go to BOK serwisowy calendar for the configured unit.;Calendar page is displayed.;;;;;
+;Verify if the event icon is displayed on matching tasks.;Icon is displayed.;;;;;
+;Go to Warsztat serwisowy calendar (different unit profile).;Calendar page is displayed.;;;;;
+;Verify if the event icon is NOT displayed on tasks in Warsztat calendar.;Icon is not displayed.;;;;;
+;End of test.;;;;;;
+Konfiguracja - Ikony zdarzeń: overloading parameters priority (Firma/Lokalizacja/Instancja);;;QA\SVCloud;QA\SVCloud\Konfiguracja;Medium;justyna.biernacka@softvig.pl;"User is logged in as Local Administrator
+Two configurations exist for the same event:
+- Configuration 1: general (no Firma/Lokalizacja/Instancja overload), Widoczny = Tak
+- Configuration 2: overloaded for specific Lokalizacja, Widoczny = Nie"
+;Go to calendar for a unit belonging to the specific overloaded Lokalizacja.;Calendar page is displayed.;;;;;
+;Verify if the icon is NOT displayed on tasks (overloaded config takes precedence).;Icon is not displayed.;;;;;
+;Go to calendar for a unit belonging to a different Lokalizacja (not overloaded).;Calendar page is displayed.;;;;;
+;Verify if the icon IS displayed on tasks (general config applies).;Icon is displayed.;;;;;
+;End of test.;;;;;;
+Konfiguracja - Ikony zdarzeń: 'Wyczyść filtry' button;;;QA\SVCloud;QA\SVCloud\Konfiguracja;Medium;justyna.biernacka@softvig.pl;"User is logged in as Local Administrator
+'Ikony zdarzeń' page is loaded
+Multiple events are available on the list"
+;Apply a filter on any column (e.g. 'Zdarzenie' or 'Rodzaj zasobu').;The list is filtered correctly.;;;;;
+;Click 'Wyczyść filtry'.;Filters have been removed.;;;;;
+;End of test.;;;;;;
