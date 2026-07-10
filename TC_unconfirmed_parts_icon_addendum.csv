@@ -1,0 +1,16 @@
+Title;Step;Expected result;Area Path;Iteration Path;QA Priority;Assigned To;Preconditions
+Planer Serwisu - unconfirmed parts icon: displayed in tooltip with correct name and translation;;;QA\SVCloud;QA\SVCloud\Planer Serwisu;Medium;justyna.biernacka@softvig.pl;"User is logged in
+Calendar page (BOK or Warsztat) is loaded
+Repair exists with field 'Części' = Wymagane
+Parts confirmation has NOT been performed"
+;Hover over the task to display the tooltip.;Tooltip is displayed.;;;;;
+;"Verify event icons section at the bottom of the tooltip:
+- icon: box-open
+- name: 'Części niepotwierdzone'";It displays correctly.;;;;;
+;Switch application language and verify if event name is translated accordingly.;Event name is translated correctly.;;;;;
+;End of test.;;;;;;
+Planer Serwisu - unconfirmed parts icon: priority order alongside other event icons;;;QA\SVCloud;QA\SVCloud\Planer Serwisu;Medium;justyna.biernacka@softvig.pl;"User is logged in
+Calendar page (BOK or Warsztat) is loaded
+Repair exists with 'Części niepotwierdzone' event AND at least one other event assigned to the same task"
+;Verify position of 'Części niepotwierdzone' icon relative to other icons on the task (left to right).;Icon position matches priority/order configured in system settings for this event type.;;;;;
+;End of test.;;;;;;
